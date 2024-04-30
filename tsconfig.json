@@ -12,7 +12,7 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "types": ["node", "@types/config"]
+    "types": ["node", "@types/config", "jest"]
   },
   "include": ["src/**/*"]
 }
