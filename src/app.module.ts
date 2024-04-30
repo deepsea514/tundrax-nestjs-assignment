@@ -6,8 +6,8 @@ import { AuthModule } from "./auth/auth.module";
 import { Cat } from "./cats/cat.entity";
 import { CatsModule } from "./cats/cats.module";
 import { CoreModule } from "./core/core.module";
-import { User } from "./user/users.entity";
-import { UsersModule } from "./user/users.module";
+import { User } from "./users/users.entity";
+import { UsersModule } from "./users/users.module";
 
 @Module({
   imports: [
