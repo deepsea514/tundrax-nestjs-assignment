@@ -2,7 +2,9 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
+import { APP_GUARD } from "@nestjs/core";
 import { AuthModule } from "./auth/auth.module";
+import { JwtGuard } from "./auth/guards/jwt.guard";
 import { Cat } from "./cats/cat.entity";
 import { CatsModule } from "./cats/cats.module";
 import { CoreModule } from "./core/core.module";
@@ -33,6 +35,12 @@ import { UsersModule } from "./users/users.module";
     CatsModule,
     AuthModule,
     UsersModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtGuard,
+    },
   ],
 })
 export class AppModule {}
