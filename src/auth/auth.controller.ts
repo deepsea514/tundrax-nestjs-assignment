@@ -9,7 +9,7 @@ import {
 import { AuthService } from "./auth.service";
 
 import { AuthGuard } from "@nestjs/passport";
-import { Public } from "./decorators/public.decorator";
+import { Public } from "../common/decorators/public.decorator";
 import { LoginResponseDTO } from "./dto/login-response.dto";
 import { RegisterRequestDto } from "./dto/register-request.dto";
 import { RegisterResponseDTO } from "./dto/register-response.dto";
