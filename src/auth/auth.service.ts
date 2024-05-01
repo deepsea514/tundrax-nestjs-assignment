@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
+import { UserRoles } from "src/common/guards/roles.guard";
 import { User } from "src/users/users.entity";
 import { UsersService } from "src/users/users.service";
 import { RegisterRequestDto } from "./dto/register-request.dto";
@@ -36,7 +37,14 @@ export class AuthService {
       throw new BadRequestException("email already exists");
     }
     const hashedPassword = await bcrypt.hash(user.password, 10);
-    const newUser: User = { ...user, password: hashedPassword };
+    const roles: string[] = [UserRoles.user];
+
+    // Temporary code for admin
+    if (user.email === "admin@gmail.com") {
+      roles.push(UserRoles.admin);
+    }
+
+    const newUser: User = { ...user, password: hashedPassword, roles: roles };
     await this.usersService.create(newUser);
     return this.login(newUser);
   }

@@ -16,4 +16,7 @@ export class User {
 
   @Column()
   lastName: string;
+
+  @Column("text", { array: true, default: [] })
+  roles: string[];
 }
