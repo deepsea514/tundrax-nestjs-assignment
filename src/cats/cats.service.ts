@@ -11,8 +11,8 @@ export class CatsService {
     private catRepository: Repository<Cat>
   ) {}
 
-  create(cat: CreateCatDto) {
-    this.catRepository.save(cat);
+  create(cat: CreateCatDto): Promise<Cat> {
+    return this.catRepository.save(cat);
   }
 
   findAll(): Promise<Cat[]> {

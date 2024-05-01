@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
-import { Roles } from "../common/decorators/roles.decorator";
+import { Roles } from "src/common/decorators/roles.decorator";
 import { RolesGuard, UserRoles } from "../common/guards/roles.guard";
 import { ParseIntPipe } from "../common/pipes/parse-int.pipe";
 import { Cat } from "./cat.entity";
@@ -13,8 +13,8 @@ export class CatsController {
 
   @Post()
   @Roles([UserRoles.admin])
-  async create(@Body() createCatDto: CreateCatDto) {
-    this.catsService.create(createCatDto);
+  async create(@Body() createCatDto: CreateCatDto): Promise<Cat> {
+    return this.catsService.create(createCatDto);
   }
 
   @Get()
