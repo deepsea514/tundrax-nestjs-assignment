@@ -1,9 +1,9 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
-import { UserRoles } from "src/common/guards/roles.guard";
-import { User } from "src/users/users.entity";
-import { UsersService } from "src/users/users.service";
+import { UserRoles } from "../common/guards/roles.guard";
+import { User } from "../users/users.entity";
+import { UsersService } from "../users/users.service";
 import { RegisterRequestDto } from "./dto/register-request.dto";
 import { AccessToken } from "./types/AccessToken";
 

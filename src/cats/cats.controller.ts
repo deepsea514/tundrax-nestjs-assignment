@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
-import { Roles } from "src/common/decorators/roles.decorator";
+import { Roles } from "../common/decorators/roles.decorator";
 import { RolesGuard, UserRoles } from "../common/guards/roles.guard";
 import { ParseIntPipe } from "../common/pipes/parse-int.pipe";
 import { Cat } from "./cat.entity";
