@@ -1,5 +1,6 @@
 import { IsEmail, IsString } from "class-validator";
 
+// DTO of Register Request
 export class RegisterRequestDto {
   @IsString()
   readonly firstName: string;
@@ -7,7 +8,6 @@ export class RegisterRequestDto {
   @IsString()
   readonly lastName: string;
 
-  @IsString()
   @IsEmail()
   readonly email: string;
 

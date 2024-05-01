@@ -19,12 +19,14 @@ import { RegisterResponseDTO } from "./dto/register-response.dto";
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  // public endpoint for login
   @UseGuards(AuthGuard("local"))
   @Post("login")
   async login(@Request() req): Promise<LoginResponseDTO | BadRequestException> {
     return this.authService.login(req.user);
   }
 
+  // public endpoint for register
   @Post("register")
   async register(
     @Body() registerBody: RegisterRequestDto
